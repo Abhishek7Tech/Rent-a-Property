@@ -225,3 +225,5 @@ const PROPERTY_DATA = [
         availableFrom: "2023-05-05"
       }
 ]
+
+export default PROPERTY_DATA;
