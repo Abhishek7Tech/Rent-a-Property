@@ -29,13 +29,10 @@ function PropertyCard(props) {
     let property = data.filter((property) => property.id === +e.target.id);
     property[0].isLiked = !property[0].isLiked;
     const filteredData = data.filter((property) => property.id !== +e.target.id);
-    console.log(+property[0].id , +property[0].id - 1);
-    const updatedData = filteredData.splice(property[0].id,property[0].id - 1, property)
-    
-    // setData(updatedData);
-    console.log("UP", updatedData);
-    console.log("FI", );
-    console.log("UP", updatedData);
+    const updatedData = [...filteredData,property[0]];
+   const sorted = updatedData.sort((a,b) => a.id - b.id);
+    setData(sorted);
+   
 
   };
 
@@ -95,7 +92,7 @@ function PropertyCard(props) {
     >
       <Flex flexWrap={"wrap"} justifyContent="center" alignContent={"center"}>
         {data.length > 1 ? (
-          data.map((property) => {
+          data.sort().map((property) => {
             return (
               <Flex>
                 <Box margin={"0.5rem"} id={property.id}>
