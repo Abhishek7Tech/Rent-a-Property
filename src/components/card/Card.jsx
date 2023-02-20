@@ -16,10 +16,29 @@ import BathRoom from "../../assets/bathtub-2.svg";
 import Bed from "../../assets/bed-double.svg";
 import House from "../../assets/house.svg";
 
+import { useCallback, useEffect, useState } from "react";
 function PropertyCard(props) {
   let Data = PROPERTY_DATA;
   const searchBarInput = props.search;
   const searchFilters = props.filter;
+
+  let [data, setData] = useState(Data);
+
+  const dataHandler = (e) => {
+    console.log(e.target.id);
+    let property = data.filter((property) => property.id === +e.target.id);
+    property[0].isLiked = !property[0].isLiked;
+    const filteredData = data.filter((property) => property.id !== +e.target.id);
+    console.log(+property[0].id , +property[0].id - 1);
+    const updatedData = filteredData.splice(property[0].id,property[0].id - 1, property)
+    
+    // setData(updatedData);
+    console.log("UP", updatedData);
+    console.log("FI", );
+    console.log("UP", updatedData);
+
+  };
+
   if (searchBarInput) {
     const input = searchBarInput.trim().toLowerCase();
     const searchBarData = Data.filter(
@@ -28,10 +47,12 @@ function PropertyCard(props) {
         data.location.toLowerCase().trim().includes(input) ||
         data.name.toLowerCase().trim().includes(input)
     );
-    Data = searchBarData;
+    data = searchBarData;
   }
 
-  console.log(searchFilters);
+  useEffect(() => {
+    console.log("DATA", data);
+  }, [data]);
   if (searchFilters.length) {
     const location = searchFilters[0].location.trim().toLowerCase();
     const date = searchFilters[0].date.trim() || new Date();
@@ -40,51 +61,28 @@ function PropertyCard(props) {
     const upperPrice = price[1].trim().slice(1, price[1].length);
 
     const property = searchFilters[0].property.trim().toLowerCase();
-    console.log(typeof +Data[0].rentalPrice);
-    const searchFiltersData = Data.filter(
-      (data) => {
-        console.log(data.rentalPrice);
-        const rentalPrice = data.rentalPrice
-          .trim()
-          .slice(1, data.rentalPrice.length);
-         const first = rentalPrice.slice(0,1);
-         const second = rentalPrice.slice(2,rentalPrice.length);     
-          const priceInt = first + second;
-        console.log(typeof +rentalPrice,priceInt);
-        return (
-          data.propertyType.trim() === property &&
-          data.location.trim().toLowerCase().includes(location) &&
-          new Date(data.availableFrom) > new Date(date) &&
-          +upperPrice > +priceInt
-            &&
-            +lowerPrice <= +priceInt
-        );
-      }
-
-      // console.log(data.location.toLowerCase().includes(location))
-      // ||
-      // const propertyByLocation = data.location.toLowerCase().includes(location);
-      // const propertyByDate = new Date(data.availableFrom) > new Date(date);
-      // const propertByPrice =
-      //   +upperPrice >= +data.rentalPrice && +data.rentalPrice <= +lowerPrice;
-
-      // const propertyByType = data.propertyType.toLowerCase().includes(property);
-
-      // data.location.toLowerCase().includes(location) === true &&
-      //   new Date(data.availableFrom) > new Date(date) === true &&
-      //   +upperPrice >= +data.rentalPrice === true &&
-      //   +data.rentalPrice < +lowerPrice === true &&
-      // data.propertyType === property
-      // console.log(propertyByLocation);
-      // console.log(propertyByDate);
-      // console.log(propertByPrice);
-      // console.log(propertyByType);
-    );
+    const searchFiltersData = Data.filter((data) => {
+      const rentalPrice = data.rentalPrice
+        .trim()
+        .slice(1, data.rentalPrice.length);
+      const first = rentalPrice.slice(0, 1);
+      const second = rentalPrice.slice(2, rentalPrice.length);
+      const priceInt = first + second;
+      return (
+        data.propertyType.trim() === property &&
+        data.location.trim().toLowerCase().includes(location) &&
+        new Date(data.availableFrom) > new Date(date) &&
+        +upperPrice > +priceInt &&
+        +lowerPrice <= +priceInt
+      );
+    });
 
     console.log("POOO", searchFiltersData);
     console.log("HOOO", location, date, upperPrice, lowerPrice, property);
-    Data = searchFiltersData;
+    data = searchFiltersData;
+    console.log("DATA", data);
   }
+
   return (
     <Box
       w={"81%"}
@@ -96,8 +94,8 @@ function PropertyCard(props) {
       marginRight={"10%"}
     >
       <Flex flexWrap={"wrap"} justifyContent="center" alignContent={"center"}>
-        {Data.length ? (
-          Data.map((property) => {
+        {data.length > 1 ? (
+          data.map((property) => {
             return (
               <Flex>
                 <Box margin={"0.5rem"} id={property.id}>
@@ -156,7 +154,13 @@ function PropertyCard(props) {
                             padding={"0.5rem"}
                             border={"1px solid #a9a9a9"}
                           >
-                            <Image src={HeartFill} />
+                            {
+                              <Image
+                                id={property.id}
+                                onClick={dataHandler}
+                                src={property.isLiked ? HeartFill : HeartEmpty}
+                              />
+                            }
                           </Flex>
                         </Flex>
                       </Box>

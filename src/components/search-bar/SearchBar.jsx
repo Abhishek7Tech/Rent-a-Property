@@ -81,7 +81,7 @@ function SearchBar(props) {
       marginLeft={"10%"}
       marginRight={"10%"}
     >
-      <Flex justifyContent={"space-between"}>
+      <Flex flexWrap={"wrap"}  justifyContent={"space-between"}>
         <Box w={"15rem"} paddingLeft={"10px"}>
           <FormLabel paddingLeft={"4px"} color={"#a9a9a9"}>
             Location
