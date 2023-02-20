@@ -91,11 +91,11 @@ function PropertyCard(props) {
       marginRight={"10%"}
     >
       <Flex flexWrap={"wrap"} justifyContent="center" alignContent={"center"}>
-        {data.length > 1 ? (
-          data.sort().map((property) => {
+        {data.length >= 1 ? (
+          data.map((property) => {
             return (
               <Flex>
-                <Box margin={"0.5rem"} id={property.id}>
+                <Box margin={"0.5rem"} key={property.id}>
                   <Box rounded={"5%"}>
                     <Card maxW="sm">
                       <CardBody p={"0%"}>

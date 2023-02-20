@@ -3,6 +3,7 @@ import {
   Box,
   Button,
   Container,
+  HStack,
   MenuButton,
   MenuItem,
   MenuList,
@@ -18,7 +19,7 @@ import { Flex, Spacer } from "@chakra-ui/react";
 function Header() {
   return (
     <Box p={4} rounded={"2%"} borderBottom={"2px solid #d3d3d3"} marginLeft={"1rem"} marginRight={"1rem"} >
-      <Flex p={2} w={"100%"}>
+      <Flex as={"nav"} p={2} w={"100%"}>
         <Image
           maxWidth={"100%"}
           height={"2rem"}
@@ -28,9 +29,9 @@ function Header() {
         <Text paddingTop={"5px"} marginLeft={"1%"} fontSize={"1.3rem"} fontWeight={"bold"}>
           Estatery
         </Text>
-        <Flex  width={"50rem"}>
+        <HStack  width={"50rem"}>
           <Box>
-            <Flex justifyContent={"space-around"} alignItems={"center"}>
+            <Flex justifyContent={"space-around"} flexWrap={"wrap"} gap={"2"} alignItems={"center"}>
               <Link href="#"  _hover={{w:"5rem",textDecor:"none",p:"5px", bgColor:"#9370db",rounded:"lg"}}   marginInline={"1.5rem"}>
                 <Text  textAlign="center" fontSize="1.3rem" fontWeight={"semibold"}>
                   Rent
@@ -98,7 +99,7 @@ function Header() {
               </Menu>
             </Flex>
           </Box>
-        </Flex>
+        </HStack>
         <Spacer />
         <Box>
           <Button color={"#7f00ff"}> Login </Button>
