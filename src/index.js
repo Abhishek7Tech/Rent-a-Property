@@ -3,18 +3,29 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { ChakraProvider } from "@chakra-ui/react";
+import { ChakraProvider, extendTheme } from "@chakra-ui/react";
 import { Container } from "@chakra-ui/react";
 
 
+  const breakpoints = {
+    
+    sm: '0em',
+    md: '48em',
+    lg: '62em',
+    xl: '80em',
+    '2xl': '96em',
+  }
+
+
+const theme = extendTheme({ breakpoints });
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <ChakraProvider>
-    <Container maxW={"100%"} padding={0}>
-      <App />
-      </Container >
+    <ChakraProvider theme={theme}>
+      <Container maxW={"100%"} padding={0}>
+        <App />
+      </Container>
     </ChakraProvider>
   </React.StrictMode>
 );

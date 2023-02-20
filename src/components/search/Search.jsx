@@ -25,23 +25,23 @@ props.setSearch(input);
       marginLeft={"10%"}
       marginRight={"10%"}
     >
-      <Flex>
-        <Box>
-          <Text fontSize={"2.5rem"} fontWeight={"semibold"}>
+      <Flex  flexWrap={"wrap"} justifyContent={"center"} >
+        <Box width={{"breakpoints.xsm":"100%",sm:"100%",md:"auto"}} textAlign={"center"}>
+          <Text  fontSize={{sm:"1.5rem", md:"1.8rem", lg:"2.5rem"}} fontWeight={"semibold"}>
             Search properties to rent
           </Text>
         </Box>
         <Spacer />
         <Box paddingTop={"10px"}>
-          <Flex>
+          <Flex >
             <Box>
-              <Input onChange={inputHandler} placeholder="Search with Search Bar" pos={"relative"} />
+              <Input onChange={inputHandler} fontSize={{sm:"1rem",md:"auto"}}  height={{md:"2rem"}} placeholder="Search with Search Bar" pos={"relative"} />
             </Box>
-            <Box paddingTop={"0.7rem"}>
+            <Box paddingTop={{sm:"0.3rem",md:"0.5rem",lg:"0.7rem"}}>
               <ChevronDownIcon
                 pos={"absolute"}
                 cursor={"pointer"}
-                right={"12%"}
+                right={{base:"30%",sm:"35%",md:"14%",lg:"12%"}}
                 zIndex={"1"}
                 
               />

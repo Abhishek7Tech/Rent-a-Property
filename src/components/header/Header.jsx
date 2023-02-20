@@ -29,26 +29,26 @@ function Header() {
         <Text paddingTop={"5px"} marginLeft={"1%"} fontSize={"1.3rem"} fontWeight={"bold"}>
           Estatery
         </Text>
-        <HStack  width={"50rem"}>
+        <HStack  width={"auto"}>
           <Box>
             <Flex justifyContent={"space-around"} flexWrap={"wrap"} gap={"2"} alignItems={"center"}>
-              <Link href="#"  _hover={{w:"5rem",textDecor:"none",p:"5px", bgColor:"#9370db",rounded:"lg"}}   marginInline={"1.5rem"}>
+              <Link href="#"  _hover={{w:"5rem",textDecor:"none",p:"5px", bgColor:"#9370db",rounded:"lg"}}   marginInline={{sm:"0.8rem",md:"1rem",lg:"1.5rem"}}>
                 <Text  textAlign="center" fontSize="1.3rem" fontWeight={"semibold"}>
                   Rent
                 </Text>
               </Link>
-              <Link href="#" _hover={{w:"5rem",textDecor:"none",p:"5px", bgColor:"#9370db",rounded:"lg"}} marginInline={"1.5rem"}>
+              <Link href="#" _hover={{w:"5rem",textDecor:"none",p:"5px", bgColor:"#9370db",rounded:"lg"}} marginInline={{sm:"0.8rem",md:"1rem",lg:"1.5rem"}}>
                 <Text  textAlign="center" fontSize="1.3rem" fontWeight={"semibold"}>
                   Buy
                 </Text>
               </Link>
-              <Link href="#" _hover={{w:"5rem",textDecor:"none",p:"5px", bgColor:"#9370db",rounded:"lg"}} marginInline={"1.5rem"}>
+              <Link href="#" _hover={{w:"5rem",textDecor:"none",p:"5px", bgColor:"#9370db",rounded:"lg"}} marginInline={{sm:"0.8rem",md:"1rem",lg:"1.5rem"}}>
                 <Text textAlign="center"  fontSize="1.3rem" fontWeight={"semibold"}>
                   Sell
                 </Text>
               </Link>
 
-              <Menu>
+              <Menu marginInline={{sm:"0.8rem",md:"1rem",lg:"1.5rem"}}>
                 <MenuButton marginLeft={"1rem"} as={Button} rightIcon={<ChevronDownIcon />}>
                   <Text fontSize="1.2rem" fontWeight={"semibold"}>
                     Manage Property
@@ -73,7 +73,7 @@ function Header() {
                 </MenuList>
               </Menu>
             
-              <Menu>
+              <Menu marginInline={{sm:"0.8rem",md:"1rem",lg:"1.5rem"}}>
                 <MenuButton marginLeft={"1rem"} as={Button} rightIcon={<ChevronDownIcon />}>
                   <Text fontSize="1.2rem" fontWeight={"semibold"}>
                     Resources
@@ -101,12 +101,10 @@ function Header() {
           </Box>
         </HStack>
         <Spacer />
-        <Box>
           <Button color={"#7f00ff"}> Login </Button>
           <Button marginLeft={"1rem"} _hover={{}} bg="#7f00ff" color={"white"}>
             Sign up
           </Button>
-        </Box>
       </Flex>
     </Box>
   );

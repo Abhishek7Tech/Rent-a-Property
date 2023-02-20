@@ -82,7 +82,7 @@ function PropertyCard(props) {
 
   return (
     <Box
-      w={"81%"}
+      w={{ sm:"100%",md:"100%",lg:"81%"}}
       padding={"0.5rem"}
       rounded={"1%"}
       border={"2px solid #d3d3d3"}
@@ -90,7 +90,7 @@ function PropertyCard(props) {
       marginLeft={"10%"}
       marginRight={"10%"}
     >
-      <Flex flexWrap={"wrap"} justifyContent="center" alignContent={"center"}>
+      <Flex flexWrap={"wrap"} justifyContent={"center"} alignContent={"center"}>
         {data.length >= 1 ? (
           data.map((property) => {
             return (

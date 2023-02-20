@@ -10,6 +10,7 @@ import {
   MenuButton,
   MenuList,
   MenuItem,
+  HStack,
 } from "@chakra-ui/react";
 import { useState } from "react";
 function SearchBar(props) {
@@ -66,12 +67,10 @@ function SearchBar(props) {
     } else {
       props.setFilters(searchProperties);
     }
-
-    console.log("CLICKED");
   };
   return (
     <Box
-      w={"80%"}
+      w={{"breakpoints.xsm":"100%",sm:"100%",md:"90%",lg:"80%"}}
       position={"relative"}
       zIndex={"200"}
       marginTop={"2rem"}
@@ -81,21 +80,21 @@ function SearchBar(props) {
       marginLeft={"10%"}
       marginRight={"10%"}
     >
-      <Flex flexWrap={"wrap"}  justifyContent={"space-between"}>
-        <Box w={"15rem"} paddingLeft={"10px"}>
+      <Flex flexWrap={"wrap"} gap={8} justifyContent={"center"}>
+        <Box textAlign={"center"} paddingLeft={"10px"}>
           <FormLabel paddingLeft={"4px"} color={"#a9a9a9"}>
             Location
           </FormLabel>
           <Input
             onChange={locationHandler}
-            fontSize={"1.3rem"}
+            fontSize={"1.2rem"}
             fontWeight={"semibold"}
             type={"text"}
             placeholder={"New York, USA"}
           />
         </Box>
         <Box opacity={"0.6"} borderRight={"2px solid #a9a9a9"}></Box>
-        <Box w={"max-content"} paddingLeft={"10px"}>
+        <Box paddingLeft={"10px"}>
           <FormLabel paddingLeft={"4px"} color={"#a9a9a9 "}>
             When
           </FormLabel>
@@ -147,17 +146,20 @@ function SearchBar(props) {
             </MenuList>
           </Menu>
         </Box>
-        <Button
-          _hover={""}
-          type="submit"
-          onClick={searchButtonHandler}
-          bg={"#7f00ff"}
-          color={"white"}
-          p="1.6rem"
-          marginTop={"10px"}
-        >
-          Search
-        </Button>
+
+        <Box flexShrink={1}>
+          <Button
+            _hover={""}
+            type="submit"
+            onClick={searchButtonHandler}
+            bg={"#7f00ff"}
+            color={"white"}
+            p="1.6rem"
+            marginTop={"10px"}
+          >
+            Search
+          </Button>
+        </Box>
       </Flex>
     </Box>
   );
