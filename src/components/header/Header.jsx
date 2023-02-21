@@ -114,7 +114,7 @@ function Header() {
                   Sell
                 </Text>
               </Link>
-              <HStack spacing={{sm:"1",md:"5",lg:"0"}}>
+              <HStack spacing={{sm:"1",md:"5",lg:"12"}}>
                 <Menu marginInline={{ sm: "0.8rem", md: "1rem", lg: "1.5rem" }}>
                   <MenuButton
                     marginLeft={"1rem"}
