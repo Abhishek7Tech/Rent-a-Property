@@ -82,7 +82,7 @@ function PropertyCard(props) {
 
   return (
     <Box
-      w={{ sm:"100%",md:"100%",lg:"81%"}}
+      // w={{ sm:"100%",md:"100%",lg:"81%"}}
       padding={"0.5rem"}
       rounded={"1%"}
       border={"2px solid #d3d3d3"}
@@ -97,7 +97,7 @@ function PropertyCard(props) {
               <Flex>
                 <Box margin={"0.5rem"} key={property.id}>
                   <Box rounded={"5%"}>
-                    <Card maxW="sm">
+                    <Card maxW="20rem">
                       <CardBody p={"0%"}>
                         <Image
                           zIndex={1}

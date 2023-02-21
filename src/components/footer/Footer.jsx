@@ -10,13 +10,13 @@ import {
 
 function Footer() {
   return (
-    <Box borderTop={"2px solid #d3d3d3"} marginTop={"2rem"} marginLeft={"1rem"} marginBottom={"0.5rem"} marginRight={"1rem"}>
+    <Box w={{sm:"100%"}} borderTop={"2px solid #d3d3d3"} marginTop={"2rem"} marginLeft={"1rem"} marginBottom={"0.5rem"} marginRight={"1rem"}>
       <Box
         rounded={"15px"}
         color={"#7f00ff"}
         backgroundColor={"#f4f0ec"}
-        marginRight={"1rem"}
-        marginLeft={"1rem"}
+        marginRight={{md:"1rem"}}
+        marginLeft={{md:"1rem"}}
         marginTop={"1rem"}
         marginBottom={"0.2rem"}
         p={4}
