@@ -16,7 +16,7 @@ import BathRoom from "../../assets/bathtub-2.svg";
 import Bed from "../../assets/bed-double.svg";
 import House from "../../assets/house.svg";
 
-import { useCallback, useEffect, useState } from "react";
+import {  useEffect, useState } from "react";
 function PropertyCard(props) {
   let Data = PROPERTY_DATA;
   const searchBarInput = props.search;
@@ -25,7 +25,6 @@ function PropertyCard(props) {
   let [data, setData] = useState(Data);
 
   const dataHandler = (e) => {
-    console.log(e.target.id);
     let property = data.filter((property) => property.id === +e.target.id);
     property[0].isLiked = !property[0].isLiked;
     const filteredData = data.filter((property) => property.id !== +e.target.id);
@@ -48,7 +47,6 @@ function PropertyCard(props) {
   }
 
   useEffect(() => {
-    console.log("DATA", data);
   }, [data]);
   if (searchFilters.length) {
     const location = searchFilters[0].location.trim().toLowerCase();
@@ -74,10 +72,7 @@ function PropertyCard(props) {
       );
     });
 
-    console.log("POOO", searchFiltersData);
-    console.log("HOOO", location, date, upperPrice, lowerPrice, property);
     data = searchFiltersData;
-    console.log("DATA", data);
   }
 
   return (
@@ -97,7 +92,7 @@ function PropertyCard(props) {
               <Flex>
                 <Box margin={"0.5rem"} key={property.id}>
                   <Box rounded={"5%"}>
-                    <Card maxW="20rem">
+                    <Card maxW="22rem">
                       <CardBody p={"0%"}>
                         <Image
                           zIndex={1}
@@ -224,7 +219,7 @@ function PropertyCard(props) {
           })
         ) : (
           <Box>
-            <Text fontSize={"6xl"} fontWeight={"bold"}>
+            <Text fontSize={{sm:"3xl",md:"4xl",lg:"5xl"}} fontWeight={"bold"}>
               No Property Matches your Search Criteria!{" "}
             </Text>
           </Box>

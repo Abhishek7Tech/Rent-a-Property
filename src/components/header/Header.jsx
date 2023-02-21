@@ -1,13 +1,10 @@
 import {
-  background,
   Box,
   Button,
-  Container,
   HStack,
   MenuButton,
   MenuItem,
   MenuList,
-  textDecoration,
 } from "@chakra-ui/react";
 import { Image } from "@chakra-ui/react";
 import Logo from "../../assets/envelope-open.svg";
@@ -24,12 +21,12 @@ function Header() {
       borderBottom={"2px solid #d3d3d3"}
       marginLeft={"1rem"}
       marginRight={"1rem"}
-    justifyContent={"center"}
->
+      justifyContent={"center"}
+    >
       <Flex
-        flexDirection={{sm:"column", md: "column", lg: "row" }}
+        flexDirection={{ sm: "column", md: "column", lg: "row" }}
         as={"nav"}
-        alignItems={{sm:"center",md:"center"}}
+        alignItems={{ sm: "center", md: "center" }}
         p={2}
         w={"100%"}
       >
@@ -40,15 +37,11 @@ function Header() {
             src={Logo}
             alt="estatery logo"
           />
-          <Text
-            paddingTop={"5px"}
-            fontSize={"1.3rem"}
-            fontWeight={"bold"}
-          >
+          <Text paddingTop={"5px"} fontSize={"1.3rem"} fontWeight={"bold"}>
             Estatery
           </Text>
         </HStack>
-        <HStack  width={"auto"}>
+        <HStack width={"auto"}>
           <Box>
             <Flex
               justifyContent={"space-around"}
@@ -56,7 +49,6 @@ function Header() {
               gap={"2"}
               alignItems={"center"}
             >
-              
               <Link
                 href="#"
                 _hover={{
@@ -114,7 +106,7 @@ function Header() {
                   Sell
                 </Text>
               </Link>
-              <HStack spacing={{sm:"1",md:"5",lg:"12"}}>
+              <HStack spacing={{ sm: "1", md: "5", lg: "12" }}>
                 <Menu marginInline={{ sm: "0.8rem", md: "1rem", lg: "1.5rem" }}>
                   <MenuButton
                     marginLeft={"1rem"}
@@ -177,7 +169,7 @@ function Header() {
           </Box>
         </HStack>
         <Spacer />
-        <HStack spacing={"2"} mt={{sm:"1rem",md:"1rem",lg:"0rem"}}>
+        <HStack spacing={"2"} mt={{ sm: "1rem", md: "1rem", lg: "0rem" }}>
           <Button color={"#7f00ff"}> Login </Button>
           <Button _hover={{}} bg="#7f00ff" color={"white"}>
             Sign up

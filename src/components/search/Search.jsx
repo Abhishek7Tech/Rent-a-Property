@@ -10,7 +10,6 @@ function Search(props) {
  const inputHandler = (e) =>{
  e.preventDefault();
  const search = e.target.value;
- console.log("NAME IN SEARCH", search);
   setInput(search);
 }
 props.setSearch(input);
